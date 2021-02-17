@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3b49c4e9-fbb9-4d81-952c-888451dca0a8" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="firstmuleprojectFlow" doc:id="4d035001-be23-4d25-b271-1238ec960f0f" >
+		<http:listener doc:name="Listener" doc:id="cc9f0ff6-8a96-415e-9491-c6d236f34da6" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="a05fb1cc-6d66-4062-8660-6cccf1bfca5a" message="message received from postman"/>
+		<set-payload value="just success" doc:name="Set Payload" doc:id="4eec8b95-6573-4f94-bcb0-adaf2a4caa6c" />
+	</flow>
+</mule>
